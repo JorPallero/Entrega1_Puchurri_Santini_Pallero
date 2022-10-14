@@ -9,14 +9,28 @@
 {% endblock texto_header %}
 
 {% block mi_contenido %}
-
+    <div class="container px-5">
     <br><a class="navbar-brand" href={% url 'crear_vehiculo' %}>Crear Vehiculo</a>
+    </div><br>
 
     <div class="container px-5">
     <h2><p>Listado de Vehiculos:</p></h2>
-    {% for vehiculo in vehiculos %}
-        <li>{{vehiculo.modelo}} {{vehiculo.marca}} {{vehiculo.color}} {{vehiculo.antiguedad}} {{vehiculo.fecha_fabricacion}}</li>
-    {% endfor %}
+
+    <form action={% url 'ver_vehiculos' %} method="GET">
+          {{formulario}}
+        <button>
+            Buscar
+        </button>
+    </form>
+    <p>
+        {% if vehiculos %}
+            {% for vehiculo in vehiculos %}
+            <li>{{vehiculo.modelo}} {{vehiculo.marca}} {{vehiculo.color}} {{vehiculo.antiguedad}} {{vehiculo.fecha_fabricacion}}</li>
+            {% endfor %}
+        {% else %}
+        <p>No hubo éxito con el resultado de tu búsqueda:</p>
+        {% endif %}
+    </p> <br>
     </div>
 
 {% endblock mi_contenido %}

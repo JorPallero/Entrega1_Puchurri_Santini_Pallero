@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
-from home.forms import VehiculoFormulario
+from home.forms import BusquedaVehiculoFormulario, VehiculoFormulario
 from datetime import datetime
 from home.models import Vehiculo
 
@@ -44,7 +44,14 @@ def crear_vehiculo(request):
 
 def ver_vehiculos(request):
     
-    vehiculos = Vehiculo.objects.all()
+    marca = request.GET.get('marca', None)
+    
+    if marca:
+        vehiculos = Vehiculo.objects.filter(marca__icontains=marca)
+    else:
+        vehiculos = Vehiculo.objects.all()
+    
+    formulario = BusquedaVehiculoFormulario()
  
-    return render(request, 'home/ver_vehiculos.html',{'vehiculos':vehiculos})
+    return render(request, 'home/ver_vehiculos.html',{'vehiculos':vehiculos, 'formulario':formulario})
 

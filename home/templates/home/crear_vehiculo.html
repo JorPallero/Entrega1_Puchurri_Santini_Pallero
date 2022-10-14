@@ -5,15 +5,23 @@
 {% endblock title_pagina %}
 
 {% block mi_contenido %}
+
+<p>
+    <div class="container px-5">
+    <h2><p>Completá el formulario:</p></h2>
+</p>
+
+<div class="container px-5">
     <form action={% url 'crear_vehiculo' %} method="POST">
         {% csrf_token %}
-        <br>
-            <br>
-                <br><table>
-                    {{formulario}}
-                    </table>
+        <p>
+            <table>
+            {{formulario}}
+            </table>
+         </p>
         <button>
             Crear
         </button>
-    </form>
+    </form><br>
+</div>
 {% endblock mi_contenido %}
