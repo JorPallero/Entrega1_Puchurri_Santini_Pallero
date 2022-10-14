@@ -9,5 +9,5 @@ class Vehiculo(models.Model):
     antiguedad = models.IntegerField()
     fecha_fabricacion = models.DateField()
     
-    # def __str__(self):
-    #     return f'{self.modelo} {self.marca}'
+    def __str__(self):
+        return f'{self.modelo} {self.marca} {self.color} {self.antiguedad}'

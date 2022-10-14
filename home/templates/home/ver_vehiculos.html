@@ -1,16 +1,23 @@
 {% extends 'home/index.html' %}
 
 {% block title_pagina %}
-<title>Ver-vehiculos</title>
+<title>Ver vehiculos</title>
 {% endblock title_pagina %}
 
 {% block texto_header %}
 <h2 class="display-5 fw-bolder text-white mb-2">Nuestros Vehiculos</h2>
 {% endblock texto_header %}
 
-{% block index_contenido %}
-<div class="container px-5">
-    <br><h1>Estos son nuestros vehiculos</h1><br>
-</div>
-{% endblock index_contenido %}
+{% block mi_contenido %}
+
+    <br><a class="navbar-brand" href={% url 'crear_vehiculo' %}>Crear Vehiculo</a>
+
+    <div class="container px-5">
+    <h2><p>Listado de Vehiculos:</p></h2>
+    {% for vehiculo in vehiculos %}
+        <li>{{vehiculo.modelo}} {{vehiculo.marca}} {{vehiculo.color}} {{vehiculo.antiguedad}} {{vehiculo.fecha_fabricacion}}</li>
+    {% endfor %}
+    </div>
+
+{% endblock mi_contenido %}
 
