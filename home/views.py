@@ -1,5 +1,4 @@
 from django.shortcuts import render
-from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from home.forms import BusquedaVehiculoFormulario, VehiculoFormulario
 from datetime import datetime
@@ -7,8 +6,8 @@ from home.models import Vehiculo
 
 # Create your views here.
 
-def index(request):
-    return render (request, 'home/index.html')
+def inicio(request):
+    return render (request, 'home/inicio.html')
 
 def ver_clientes(request):
     return render (request, 'home/ver_clientes.html') 
