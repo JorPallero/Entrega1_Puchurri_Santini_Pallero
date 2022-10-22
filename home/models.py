@@ -11,3 +11,13 @@ class Vehiculo(models.Model):
     
     def __str__(self):
         return f'{self.modelo} {self.marca} {self.color} {self.antiguedad}'
+    
+class Cliente(models.Model):
+    nombre = models.CharField(max_length=30)
+    apellido = models.CharField(max_length=20)
+    edad = models.IntegerField()
+    fecha_nacimiento = models.DateField()
+    domicilio = models.CharField(max_length=40)
+    
+    def __str__(self):
+        return f'{self.nombre} {self.apellido} {self.edad} {self.fecha_nacimiento} {self.domicilio}'

@@ -1,0 +1,24 @@
+{% extends 'home/inicio.html' %}
+
+{% block title_pagina %}
+<title>Crear cliente</title>
+{% endblock title_pagina %}
+
+{% block mi_contenido %}
+<p>
+    <div class="container px-5">
+    <h2><p>Completá el formulario:</p></h2>
+</p>
+<div class="container px-5">
+    <form action={% url 'crear_cliente' %} method="post">
+        {% csrf_token %}
+        <p>
+            <table>
+                {{form}}
+            </table>
+        </p>
+        <button>Crear</button>
+    </form><br>
+</div>
+{% endblock mi_contenido %}
+

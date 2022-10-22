@@ -1,16 +1,13 @@
-from django.shortcuts import render
 from django.shortcuts import render, redirect
 from home.forms import BusquedaVehiculoFormulario, VehiculoFormulario
 from datetime import datetime
-from home.models import Vehiculo
+from home.models import Vehiculo, Cliente
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.views.generic import ListView
 
-# Create your views here.
 
 def inicio(request):
     return render (request, 'home/inicio.html')
-
-def ver_clientes(request):
-    return render (request, 'home/ver_clientes.html') 
 
 def about(request):
     return render (request, 'home/about.html')
@@ -56,4 +53,35 @@ def ver_vehiculos(request):
     formulario = BusquedaVehiculoFormulario()
  
     return render(request, 'home/ver_vehiculos.html',{'vehiculos':vehiculos, 'formulario':formulario})
+
+def ver_clientes(request):
+    return render (request, 'home/ver_clientes.html') 
+
+
+class ListarClientes(ListView):
+    model = Cliente
+    template_name = 'home/listar_clientes.html'
+
+
+class CrearCliente(CreateView):
+    model = Cliente
+    template_name = 'home/crear_cliente.html'
+    success_url = '/clientes'
+    fields = ['nombre', 'apellido', 'edad', 'fecha_nacimiento', 'domicilio']
+    
+    
+class EditarCliente(UpdateView):
+    model = Cliente
+    template_name = 'home/editar_cliente.html'
+    success_url = '/clientes'
+    fields = ['nombre', 'apellido', 'edad', 'fecha_nacimiento', 'domicilio']
+    
+    
+class EliminarCliente(DeleteView):
+    model = Cliente
+    template_name = 'home/eliminar_cliente.html'
+    success_url = '/clientes'
+    
+    
+    
 
