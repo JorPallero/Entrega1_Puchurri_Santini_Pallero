@@ -16,7 +16,9 @@ class MiFormularioDeCreacion(UserCreationForm):
         
 
 class EditarFormulario (forms.Form):
-    email = forms.EmailField()
-    first_name = forms.CharField(label='Nombre')
-    last_name = forms.CharField(label='Apellido')
+    email = forms.EmailField(required=False)
+    first_name = forms.CharField(label='Nombre', max_length=30, required=False)
+    last_name = forms.CharField(label='Apellido', max_length=30, required=False)
     avatar = forms.ImageField(required=False)
+    descripcion = forms.CharField(label='Cómo me describo?', required=False)
+    link_pagina = forms.CharField(label='Agregá un link si tenés blog', required=False)
