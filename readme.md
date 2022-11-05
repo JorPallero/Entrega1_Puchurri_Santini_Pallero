@@ -13,3 +13,4 @@ Para clonar nuestro proyecto debes seguir estos pasos:
 12. Próximamente en 'Contact' agregaremos un formulario de contacto pero hasta entonces puedes escribirnos al mail allí detallado.
 13. Para acceder al perfil de administrador el usuario es "admin" y la contraseña "123".
 14. Ya se pueden registrar usuarios. Los mismos tienen derechos para Crear, editar y elimninar Clientes; como así también agregar Vehículos a la lista.
+15. Los usuarios pueden modificar sus datos de perfil, como asi también su contraseña y la imagen de perfil.
