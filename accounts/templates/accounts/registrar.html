@@ -1,0 +1,18 @@
+{% extends 'home/inicio.html' %}
+
+{% block title_pagina %}
+<title>Registro</title>
+{% endblock title_pagina %}
+
+{% block mi_contenido %}
+    <form action={% url 'registrar' %} method="POST">
+        {% csrf_token %}
+        <p>
+            <table>
+                {{formulario}}
+            </table>
+        </p>
+        <button>Registrarse</button>
+    </form><br>
+</div>
+{% endblock mi_contenido %}

@@ -4,7 +4,8 @@ from datetime import datetime
 from home.models import Vehiculo, Cliente
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic import ListView
-
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.decorators import login_required
 
 def inicio(request):
     return render (request, 'home/inicio.html')
@@ -15,6 +16,7 @@ def about(request):
 def contact(request):
     return render (request, 'home/contact.html')
 
+@login_required
 def crear_vehiculo(request):
     
     if request.method == 'POST':
@@ -57,27 +59,30 @@ def ver_vehiculos(request):
 def ver_clientes(request):
     return render (request, 'home/ver_clientes.html') 
 
+def registrar(request):
+    formulario = ''
+    return render(request, 'accounts/registrar.html', {'formulario': formulario})
 
 class ListarClientes(ListView):
     model = Cliente
     template_name = 'home/listar_clientes.html'
 
 
-class CrearCliente(CreateView):
+class CrearCliente(LoginRequiredMixin, CreateView):
     model = Cliente
     template_name = 'home/crear_cliente.html'
     success_url = '/clientes'
     fields = ['nombre', 'apellido', 'edad', 'fecha_nacimiento', 'domicilio']
     
     
-class EditarCliente(UpdateView):
+class EditarCliente(LoginRequiredMixin, UpdateView):
     model = Cliente
     template_name = 'home/editar_cliente.html'
     success_url = '/clientes'
     fields = ['nombre', 'apellido', 'edad', 'fecha_nacimiento', 'domicilio']
     
     
-class EliminarCliente(DeleteView):
+class EliminarCliente(LoginRequiredMixin, DeleteView):
     model = Cliente
     template_name = 'home/eliminar_cliente.html'
     success_url = '/clientes'
