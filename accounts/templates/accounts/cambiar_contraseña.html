@@ -6,13 +6,14 @@
 
 {% block mi_contenido %}
 <div class="container px-5">
-    <p>
+    <p border="#000">
         <form action={% url 'cambiar_contraseña' %} method="post">
             {% csrf_token %}
             <table>
                 {{form}}
             </table>
-            <button>Cambiar</button>
+
+            <button class="bototo">Cambiar</button>    
         </form>
     </p>
 </div>

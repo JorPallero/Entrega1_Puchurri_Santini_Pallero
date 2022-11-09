@@ -5,7 +5,7 @@
 {% endblock title_pagina %}
 
 {% block mi_contenido %}
-    <form action={% url 'login' %} method="post">
+    <form class="form" action={% url 'login' %} method="post">
         {% csrf_token %}
         <p>
             <table>
