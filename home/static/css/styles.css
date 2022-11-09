@@ -83,10 +83,11 @@
 }
 
 .form button {
-  padding: 0.5em 1em;
-  border: none;
-  background: rgb(100, 200, 255);
-  cursor:move;
+  border:thin;
+  background: #343a40;
+  cursor:zoom-in;
+  color: white;
+  border-style: inset;  
 }
 
 *,
