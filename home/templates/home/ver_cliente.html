@@ -1,0 +1,23 @@
+{% extends 'home/inicio.html' %}
+
+{% block title_pagina %}
+    <title>Cliente</title>
+{% endblock title_pagina %}
+
+{% block texto_header %}
+    <h2 class="display-5 fw-bolder text-white mb-2">Nuestros Clientes</h2>
+{% endblock texto_header %}
+
+{% block mi_contenido %}
+   <p class="container px-5">
+        <li>Nombre: {{cliente.nombre}}</li> 
+        <li>Apellido: {{cliente.apellido}}</li> 
+        <li>Edad: {{cliente.edad}}</li> 
+        <li>Fecha de nacimiento: {{cliente.fecha_nacimiento}}</li>
+        <li>Domicilio: {{cliente.domicilio}}</li> 
+        <li>Descripcion: {{cliente.descripcion | safe}}</li> 
+    </p>
+
+
+{% endblock mi_contenido %}
+

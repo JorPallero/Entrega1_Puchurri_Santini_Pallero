@@ -10,7 +10,7 @@
 
 {% block mi_contenido %}
     <div class="container px-5">
-    <br><a class="navbar-brand" href={% url 'crear_vehiculo' %}>Crear Vehiculo</a>
+    <br><a  href={% url 'crear_vehiculo' %}>Crear Vehiculo</a>
     </div><br>
 
     <div class="container px-5">
@@ -25,7 +25,13 @@
     <p>
         {% if vehiculos %}
             {% for vehiculo in vehiculos %}
-            <li>{{vehiculo.modelo}} {{vehiculo.marca}} {{vehiculo.color}} {{vehiculo.antiguedad}} {{vehiculo.fecha_fabricacion}}</li>
+                <ul>
+                    <li>Modelo: {{vehiculo.modelo}}</li> 
+                    <li>Marca: {{vehiculo.marca}}</li> 
+                    <li>Color: {{vehiculo.color}}</li> 
+                    <li>Antiguedad: {{vehiculo.antiguedad}}</li> 
+                    <li>Fecha de Fabricación: {{vehiculo.fecha_fabricacion}}</li>
+                </ul>
             {% endfor %}
         {% else %}
         <p>No hubo éxito con el resultado de tu búsqueda.</p>

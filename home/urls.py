@@ -12,4 +12,5 @@ urlpatterns = [
     path('clientes/crear/',views.CrearCliente.as_view(), name='crear_cliente'),
     path('clientes/<int:pk>/editar/',views.EditarCliente.as_view(), name='editar_cliente'),
     path('clientes/<int:pk>/eliminar/',views.EliminarCliente.as_view(), name='eliminar_cliente'),
+    path('clientes/<int:pk>/ver /',views.VerCliente.as_view(), name='ver_cliente')
 ]

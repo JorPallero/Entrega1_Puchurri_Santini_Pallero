@@ -10,7 +10,7 @@
 
 {% block mi_contenido %}
     <div class="container px-5">
-        <br><a class="navbar-brand" href={% url 'crear_cliente' %}>Crear Cliente</a>
+        <br><a href={% url 'crear_cliente' %}>Crear Cliente</a>
     </div><br>
 
     <div class="container px-5">
@@ -18,10 +18,12 @@
     <p>
         {% if object_list %}
         {% for cliente in object_list %}
-            <li>
-            {{cliente}}
-            <a href={% url 'editar_cliente' cliente.id %}>Editar</a>
-            <a href={% url 'eliminar_cliente' cliente.id %}>Eliminar</a>
+            <li class="lista-clientes" >
+                {% comment %} <ul>{{cliente}}</ul> {% endcomment %}
+                
+                <a href={% url 'ver_cliente' cliente.id %}>{{cliente}}</a>
+                <a href={% url 'editar_cliente' cliente.id %}>Editar</a>
+                <a href={% url 'eliminar_cliente' cliente.id %}>Eliminar</a> 
             </li>
         {% endfor %}
         {% else %}

@@ -1,4 +1,5 @@
 from django import forms
+from ckeditor.fields import RichTextFormField
 
 class VehiculoFormulario(forms.Form):
     modelo = forms.CharField(max_length=20)
@@ -9,3 +10,11 @@ class VehiculoFormulario(forms.Form):
     
 class BusquedaVehiculoFormulario(forms.Form):
     marca = forms.CharField(max_length=20, required=False)
+    
+class Cliente(forms.Form):
+    nombre = forms.CharField(max_length=30)
+    apellido = forms.CharField(max_length=20)
+    edad = forms.IntegerField()
+    fecha_nacimiento = forms.DateField()
+    domicilio = forms.CharField(max_length=40)
+    descripcion = RichTextFormField(required=False)

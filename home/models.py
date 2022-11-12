@@ -1,4 +1,5 @@
 from django.db import models
+from ckeditor.fields import RichTextField
 
 # Create your models here.
 
@@ -18,6 +19,7 @@ class Cliente(models.Model):
     edad = models.IntegerField()
     fecha_nacimiento = models.DateField()
     domicilio = models.CharField(max_length=40)
+    descripcion = RichTextField(null=True)
     
     def __str__(self):
         return f'{self.nombre} {self.apellido} {self.edad} {self.fecha_nacimiento} {self.domicilio}'

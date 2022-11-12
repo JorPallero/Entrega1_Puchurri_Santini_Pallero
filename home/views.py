@@ -3,7 +3,7 @@ from home.forms import BusquedaVehiculoFormulario, VehiculoFormulario
 from datetime import datetime
 from home.models import Vehiculo, Cliente
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
-from django.views.generic import ListView
+from django.views.generic import ListView, DetailView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.decorators import login_required
 
@@ -72,7 +72,7 @@ class CrearCliente(LoginRequiredMixin, CreateView):
     model = Cliente
     template_name = 'home/crear_cliente.html'
     success_url = '/clientes'
-    fields = ['nombre', 'apellido', 'edad', 'fecha_nacimiento', 'domicilio']
+    fields = ['nombre', 'apellido', 'edad', 'fecha_nacimiento', 'domicilio', 'descripcion']
     
     
 class EditarCliente(LoginRequiredMixin, UpdateView):
@@ -86,6 +86,10 @@ class EliminarCliente(LoginRequiredMixin, DeleteView):
     model = Cliente
     template_name = 'home/eliminar_cliente.html'
     success_url = '/clientes'
+    
+class VerCliente(DetailView):
+    model = Cliente 
+    template_name = 'home/ver_cliente.html'
     
     
     
