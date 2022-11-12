@@ -1,6 +1,7 @@
 from django.contrib.auth.forms import UserCreationForm, PasswordChangeForm
 from django.contrib.auth.models import User
 from django import forms
+from ckeditor.fields import RichTextFormField
 
 class MiFormularioDeCreacion(UserCreationForm):
     
@@ -20,7 +21,7 @@ class EditarFormulario (forms.Form):
     first_name = forms.CharField(label='Nombre', max_length=30, required=False)
     last_name = forms.CharField(label='Apellido', max_length=30, required=False)
     avatar = forms.ImageField(required=False)
-    descripcion = forms.CharField(label='Cómo me describo?', required=False)
+    descripcion = RichTextFormField(required=False)
     link_pagina = forms.CharField(label='Agregá un link si tenés blog', required=False)
     
 class MiCambioDePassword(PasswordChangeForm):

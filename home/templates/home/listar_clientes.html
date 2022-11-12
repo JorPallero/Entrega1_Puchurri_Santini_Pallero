@@ -4,10 +4,6 @@
     <title>Listar clientes</title>
 {% endblock title_pagina %}
 
-{% block texto_header %}
-    <h2 class="display-5 fw-bolder text-white mb-2">Nuestros Clientes</h2>
-{% endblock texto_header %}
-
 {% block mi_contenido %}
     <div class="container px-5">
         <br><a href={% url 'crear_cliente' %}>Crear Cliente</a>
@@ -33,6 +29,7 @@
             No hay clientes en nuestra base de datos
         {% endif %}
     </p>
+    </div>
 
 {% endblock mi_contenido %}
 
