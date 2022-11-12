@@ -18,3 +18,6 @@ class Cliente(forms.Form):
     fecha_nacimiento = forms.DateField()
     domicilio = forms.CharField(max_length=40)
     descripcion = RichTextFormField(required=False)
+    
+class BusquedaCliente(forms.Form):
+    apellido = forms.CharField(max_length=20, required=False)

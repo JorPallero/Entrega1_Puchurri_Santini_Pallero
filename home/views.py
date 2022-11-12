@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from home.forms import BusquedaVehiculoFormulario, VehiculoFormulario
+from home.forms import BusquedaVehiculoFormulario, VehiculoFormulario, BusquedaCliente
 from datetime import datetime
 from home.models import Vehiculo, Cliente
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
@@ -66,7 +66,19 @@ def registrar(request):
 class ListarClientes(ListView):
     model = Cliente
     template_name = 'home/listar_clientes.html'
-
+    
+    def get_queryset(self):
+        apellido = self.request.GET.get('apellido', '')
+        if apellido:
+            object_list = self.model.objects.filter(apellido__icontains=apellido)
+        else:
+            object_list = self.model.objects.all()
+        return object_list
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['formulario'] = BusquedaCliente()
+        return context 
 
 class CrearCliente(LoginRequiredMixin, CreateView):
     model = Cliente

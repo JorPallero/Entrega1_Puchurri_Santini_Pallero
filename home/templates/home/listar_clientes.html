@@ -15,12 +15,15 @@
 
     <div class="container px-5">
         <h2><p>Listado de Clientes:</p></h2>
+
+    <form action={% url 'listar_clientes' %} method="GET">
+        {{formulario}}
+        <button>Buscar</button>
+    </form>
     <p>
         {% if object_list %}
         {% for cliente in object_list %}
-            <li class="lista-clientes" >
-                {% comment %} <ul>{{cliente}}</ul> {% endcomment %}
-                
+            <li class="lista-clientes" > 
                 <a href={% url 'ver_cliente' cliente.id %}>{{cliente}}</a>
                 <a href={% url 'editar_cliente' cliente.id %}>Editar</a>
                 <a href={% url 'eliminar_cliente' cliente.id %}>Eliminar</a> 

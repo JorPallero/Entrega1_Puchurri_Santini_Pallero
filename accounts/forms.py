@@ -1,4 +1,4 @@
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import UserCreationForm, PasswordChangeForm
 from django.contrib.auth.models import User
 from django import forms
 
@@ -22,3 +22,13 @@ class EditarFormulario (forms.Form):
     avatar = forms.ImageField(required=False)
     descripcion = forms.CharField(label='Cómo me describo?', required=False)
     link_pagina = forms.CharField(label='Agregá un link si tenés blog', required=False)
+    
+class MiCambioDePassword(PasswordChangeForm):
+    old_password = forms.CharField(label='Constraseña Vieja', widget=forms.PasswordInput)
+    new_password1 = forms.CharField(label='Constraseña Nueva', widget=forms.PasswordInput)
+    new_password2 = forms.CharField(label='Repetir Constraseña Nueva', widget=forms.PasswordInput)
+    
+    class Meta:
+        model = User
+        fields = ['old_password', 'new_password1', 'new_password2']
+        help_texts = {key: '' for key in fields}
