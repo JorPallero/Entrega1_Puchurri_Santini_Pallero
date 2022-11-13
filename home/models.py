@@ -22,4 +22,4 @@ class Cliente(models.Model):
     descripcion = RichTextField(null=True)
     
     def __str__(self):
-        return f'{self.nombre} {self.apellido} {self.edad} {self.fecha_nacimiento} {self.domicilio}'
+        return f'Nombre: {self.nombre} / Apellido: {self.apellido} / Edad: {self.edad} / Fecha de Nacimiento: {self.fecha_nacimiento} / Domicilio: {self.domicilio}'

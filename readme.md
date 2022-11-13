@@ -7,10 +7,14 @@ Para clonar nuestro proyecto debes seguir estos pasos:
 6. Ejecuta en tu terminal: python manage.py migratations.  Luego: python manage.py migrate.
 7. Para levantar el proyecto puedes ejecutar: python manage.py runserver  
 8. Listo!  Ya puedes navegar en tu página!
-9. Aún está en construcción pero puedes ingresar a la sección 'Vehículos' y hacer click en "Crear Vehiculo", ingresar un modelo, una marca, un color, años de antiguedad y fecha de fabricación (optativo) y crear un registro en tu base de datos. Luego se mostrarán todos los registros creados al momento teniendo la posibilidad de hacer una búsqueda por marca (total o parcialmente coincidente en carácteres). 
-10. La sección Clientes está en etapa de mejora.
-11. En 'About' podrás conocer más acerca de nosotros.
-12. Próximamente en 'Contact' agregaremos un formulario de contacto pero hasta entonces puedes escribirnos al mail allí detallado.
-13. Para acceder al perfil de administrador el usuario es "admin" y la contraseña "123".
-14. Ya se pueden registrar usuarios. Los mismos tienen derechos para Crear, editar y elimninar Clientes; como así también agregar Vehículos a la lista.
-15. Los usuarios pueden modificar sus datos de perfil, como asi también su contraseña y la imagen de perfil.
+9. Antes que nada debes registrarte para poder ejecutar acciones.  Debes dirigirte a "Registrarse" e indicando Usuario, email y contraseña puedes crear un usuario.
+10. Luego puedes loguearte accediendo desde "Iniciar sesión".
+11. Una vez dentro ya puedes ir a las secciones "Vehículos" y/o "Clientes" y crear registros eligiendo la opción "Crear Vehículo" o "Crear Cliente" dependiendo de la sección donde te encuentres.
+12. En "Vehiculos" se pueden visualizar todos los registros creados y tienes la posibilidad de Buscar registros por medio del campo "Marca" (total o parcialmente coincidente en carácteres).
+13. En "Clientes" además de crearlos puedes buscar registros a través del campo "Apellido".
+14. Para crear registros debes estar logueado, no asi para verlos o para buscarlos.
+15. Además puedes agregar datos a tu perfil: "Nombre", "Apellido", "Descripción", "Link Página", un avatar. También puedes modificarlos, incluyendo tu email y tu contraseña.
+16. En 'About' podrás conocer más acerca de nosotros.
+17. Próximamente en 'Contact' agregaremos un formulario de contacto pero hasta entonces puedes escribirnos al mail allí detallado.
+18. Puedes crear un usuario de administrador ejecutando en tu terminal: python manage.py createsuperuser
+

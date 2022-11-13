@@ -11,10 +11,11 @@
 {% block inicio_contenido %}
 <form action={% url 'editar_cliente' cliente.id %} method="post">
     {% csrf_token %}
-    <table>
-        {{form.media}}
+   <p>
+        <table>
         {{form}}
-    </table>
-    <button>Editar</button>
+        </table>
+    </p>
+    <p><button>Editar</button></p>
 </form>
 {% endblock inicio_contenido %}
