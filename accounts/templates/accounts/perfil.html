@@ -10,7 +10,7 @@
             <h2>Mi Perfil:</h2> 
         </p>
         <p>
-            <li>
+            <li color="white">
                 {% if request.user.extensionusuario.avatar %}
                 <img src={{request.user.extensionusuario.avatar.url}} alt="Error al cargar la Imagen" width="170px" height="170px">
                 {% else %}
@@ -19,7 +19,7 @@
                 
             </li>
         </p>
-        <p>
+        <p color="white">
             <li>Nombre: {{request.user.first_name}}</li>
             <li>Apellido: {{request.user.last_name}}</li>
             <li>Email: {{request.user.email}}</li>
@@ -27,10 +27,10 @@
             <li>Link Página: {{request.user.extensionusuario.link_pagina}}</li>
         </p>
         <p>
-            <a href={% url 'editar_perfil' %}>Editar Datos</a>
+            <a href={% url 'editar_perfil' %} color="white">Editar Datos</a>
         </p>
         <p>
-            <a href={% url 'cambiar_contraseña' %}>Cambiar Contraseña</a>
+            <a href={% url 'cambiar_contraseña' %} color="white">Cambiar Contraseña</a>
         </p>    
     </div>
 {% endblock mi_contenido %}
